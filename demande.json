@@ -1,23 +1,30 @@
 {
     "id" : "0001",
-    "objet" : "OK pour envoyer JPG en Erasmus l'an prochain",
+    "summary" : "OK pour envoyer JPG en Erasmus l'an prochain",
     "payload" : {
         "etudiant" : "gouigoux-jp",
         "destination" : "Göteborg",
         "annee" : "2019"
     },
-    "categorie" : "DEMANDE_ERASMUS",
+    "category" : "DEMANDE_ERASMUS",
     "vote" : {
-        "votant" : "kermorvant-a",
-        "datevote" : "2018-01-01:09:00:00Z+1",
-        "choix" : {
+        "author" : {
+            "login" : "kermorvant-a",
+            "label" : "Armel Kermorvant",
+            "function" : "Directeur de formation"
+        },
+        "timestamp" : "2018-01-01:09:00:00Z+1",
+        "answer" : {
             "code" : 0
         }
     },
-    "choix" : [
+    "answers" : [
         {
             "code" : 0,
-            "libelle" : "Oui, envoyez-le",
+            "label" : {
+                "lang" : "fr-FR",
+                "value" : "Oui, envoyez-le"
+            },
             "headers" : [
                 {
                     "name" : "Authorization",
@@ -26,18 +33,24 @@
             ],
             "action" : {
                 "url" : "http://erasmus/dossiers",
-                "verbe" : "POST",
+                "verb" : "POST",
                 "headers" : [],
                 "payload" : "${payload}"
             }
         },
         {
             "code" : 1,
-            "libelle" : "Non, il ne mérite pas de partir en Erasmus",
+            "label" : {
+                "lang" : "fr-FR",
+                "value" : "Non, il ne mérite pas de partir en Erasmus"
+            },
             "datacollect" : [
                 {
                     "code" : "raison",
-                    "libelle" : "Merci d'expliciter ce choix",
+                    "label" : { 
+                        "lang" : "fr-FR",
+                        "value" : "Merci d'expliciter ce choix"
+                    },
                     "type" : "string",
                     "optional" : true
                 }
