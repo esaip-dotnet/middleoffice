@@ -1,0 +1,60 @@
+{
+    "id" : "0001",
+    "summary" : "OK pour envoyer JPG en Erasmus l'an prochain",
+    "payload" : {
+        "etudiant" : "gouigoux-jp",
+        "destination" : "Göteborg",
+        "annee" : "2019"
+    },
+    "category" : "DEMANDE_ERASMUS",
+    "vote" : {
+        "author" : {
+            "login" : "kermorvant-a",
+            "label" : "Armel Kermorvant",
+            "function" : "Directeur de formation"
+        },
+        "timestamp" : "2018-01-01:09:00:00Z+1",
+        "answer" : {
+            "code" : 0
+        }
+    },
+    "answers" : [
+        {
+            "code" : 0,
+            "label" : {
+                "lang" : "fr-FR",
+                "value" : "Oui, envoyez-le"
+            },
+            "headers" : [
+                {
+                    "name" : "Authorization",
+                    "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
+                }
+            ],
+            "action" : {
+                "url" : "http://erasmus/dossiers",
+                "verb" : "POST",
+                "headers" : [],
+                "payload" : "${payload}"
+            }
+        },
+        {
+            "code" : 1,
+            "label" : {
+                "lang" : "fr-FR",
+                "value" : "Non, il ne mérite pas de partir en Erasmus"
+            },
+            "datacollect" : [
+                {
+                    "code" : "raison",
+                    "label" : { 
+                        "lang" : "fr-FR",
+                        "value" : "Merci d'expliciter ce choix"
+                    },
+                    "type" : "string",
+                    "optional" : true
+                }
+            ]
+        }
+    ]
+}
