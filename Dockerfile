@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.0-sdk AS builder
 WORKDIR /app
-ADD /src/optimizer.csproj /app
+ADD /src/middleoffice.csproj /app
 RUN dotnet restore
 ADD /src /app
 RUN dotnet publish -o output
