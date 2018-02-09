@@ -1,6 +1,9 @@
 {
     "id" : "0001",
-    "summary" : "OK pour envoyer JPG en Erasmus l'an prochain",
+    "summary" : [{
+        "lang" : "fr-FR",
+        "value" : "OK pour envoyer JPG en Erasmus l'an prochain"
+    }],
     "payload" : {
         "etudiant" : "gouigoux-jp",
         "destination" : "Göteborg",
@@ -10,10 +13,13 @@
     "vote" : {
         "author" : {
             "login" : "kermorvant-a",
-            "label" : "Armel Kermorvant",
-            "function" : "Directeur de formation"
+            "displayName" : "Armel Kermorvant",
+            "function" : [{
+                "lang" : "fr-Fr",
+                "value" : "Directeur de formation"
+            }]
         },
-        "timestamp" : "2018-01-01:09:00:00Z+1",
+        "timestamp" : "09/02/2018 13:14:55",
         "answer" : {
             "code" : 0
         }
@@ -21,20 +27,29 @@
     "answers" : [
         {
             "code" : 0,
-            "label" : {
+            "summary" : [{
                 "lang" : "fr-FR",
                 "value" : "Oui, envoyez-le"
-            },
-            "headers" : [
-                {
-                    "name" : "Authorization",
-                    "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
-                }
-            ],
+            },{
+                "lang" : "en",
+                "value" : "Yes, send him"
+            },{
+                "lang" : "de",
+                "value" : "Ja, schicken Sie darin"
+            }],
+            "content" : [{
+                "lang" : "fr-FR",
+                "value" : "Si vous choisissez cette réponse, alors la personne désignée dans le message sera envoyée pour l'année scolaire suivante en Erasmus à la destination demandée. En cas de doute, contacter machin@bidule.fr."
+            }],
             "action" : {
                 "url" : "http://erasmus/dossiers",
                 "verb" : "POST",
-                "headers" : [],
+                "headers" : [
+                    {
+                        "name" : "Authorization",
+                        "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
+                    }
+                ],
                 "payload" : "${payload}"
             }
         },
@@ -43,18 +58,7 @@
             "label" : {
                 "lang" : "fr-FR",
                 "value" : "Non, il ne mérite pas de partir en Erasmus"
-            },
-            "datacollect" : [
-                {
-                    "code" : "raison",
-                    "label" : { 
-                        "lang" : "fr-FR",
-                        "value" : "Merci d'expliciter ce choix"
-                    },
-                    "type" : "string",
-                    "optional" : true
-                }
-            ]
+            }
         }
     ]
 }
