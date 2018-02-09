@@ -14,6 +14,7 @@ namespace MiddleOffice
 
         private string urlService = "http://esaip.westeurope.cloudapp.azure.com/";
 
+        //POST /requests : ajoute une demande de vote
         [HttpPost]
         public IActionResult CreateRequest([FromBody] Request r)
         {
@@ -24,12 +25,14 @@ namespace MiddleOffice
             return Created(urlService + "api/Requests/" + r.id, r);
         }
 
+        //GET /requests : liste toutes les demandes en attente
         [HttpGet("/api/Requests")]
         public IActionResult GetRequests()
         {
             return new JsonResult(db.FindAll(r => r.vote == null));
         }
 
+        //GET /requests/{id} : affiche une demande pour lecture et vote éventuel
         [HttpGet("/api/Requests/{id}")]
         public IActionResult GetRequest(string id)
         {
@@ -38,6 +41,7 @@ namespace MiddleOffice
             return new JsonResult(result);
         }
 
+        //POST /requests/{id}/vote : donne un choix de vote pour une demande
         [HttpPost("/api/Requests/{id}/Vote")]
         public IActionResult Vote(string id, [FromBody] Vote v)
         {
