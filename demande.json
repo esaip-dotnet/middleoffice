@@ -1,6 +1,9 @@
 {
     "id" : "0001",
-    "summary" : "OK pour envoyer JPG en Erasmus l'an prochain",
+    "summary" : [{
+        "lang" : "fr-FR",
+        "value" : "OK pour envoyer JPG en Erasmus l'an prochain"
+    }],
     "payload" : {
         "etudiant" : "gouigoux-jp",
         "destination" : "Göteborg",
@@ -10,8 +13,11 @@
     "vote" : {
         "author" : {
             "login" : "kermorvant-a",
-            "label" : "Armel Kermorvant",
-            "function" : "Directeur de formation"
+            "displayName" : "Armel Kermorvant",
+            "function" : [{
+                "lang" : "fr-Fr",
+                "value" : "Directeur de formation"
+            }]
         },
         "timestamp" : "2018-01-01:09:00:00Z+1",
         "answer" : {
@@ -21,10 +27,20 @@
     "answers" : [
         {
             "code" : 0,
-            "label" : {
+            "summary" : [{
                 "lang" : "fr-FR",
                 "value" : "Oui, envoyez-le"
-            },
+            },{
+                "lang" : "en",
+                "value" : "Yes, send him"
+            },{
+                "lang" : "de",
+                "value" : "Ja, schicken Sie darin"
+            }],
+            "content" : [{
+                "lang" : "fr-FR",
+                "value" : "Si vous choisissez cette réponse, alors la personne désignée dans le message sera envoyée pour l'année scolaire suivante en Erasmus à la destination demandée. En cas de doute, contacter machin@bidule.fr."
+            }],
             "action" : {
                 "url" : "http://erasmus/dossiers",
                 "verb" : "POST",
