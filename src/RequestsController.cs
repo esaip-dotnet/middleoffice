@@ -35,7 +35,12 @@ namespace MiddleOffice
         {
             Request result = db.Find(r => r.id == id);
             if (result == null) return NotFound();
-            return new JsonResult(result);
+            if (Request.Headers["Accept"] == "application/json")
+                return new JsonResult(result);
+            else
+                //context.Response.Redirect();
+                return RedirectToPage("/vote.html");
+                //return Content("<html><body><h1>coucou</h1></body></html>");
         }
 
         [HttpPost("/api/Requests/{id}/Vote")]
