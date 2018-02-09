@@ -8,8 +8,8 @@ namespace MiddleOffice
     public class Answer
     {
         public string code { get; set; }
-        public string summary { get; set; }
-        public string label { get; set; }
-        public List<Header> headers { get; set; }
+        public List<Labels> summary { get; set; }
+        public List<Labels> description { get; set; }
+        public Action action { get; set; }
     }
 }

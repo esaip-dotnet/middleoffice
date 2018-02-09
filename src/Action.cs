@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 
 namespace MiddleOffice
 {
-    public class Request
+    public class Action
     {
-        public string id { get; set; }
-        public List<Labels> summary { get; set; }
+        public string url { get; set; }
+        public string verb { get; set; }
+        public object headers { get; set; }
         public object payload { get; set; }
-        public string category { get; set; }
         public List<Answer> answers { get; set; }
-        public Vote vote  { get; set; }
     }
 }

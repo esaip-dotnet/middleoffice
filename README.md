@@ -25,3 +25,8 @@ Connexion au SSH 22 avec user esaip / mot de passe donné en cours
 docker build -t jpgouigoux/middleoffice .
 docker run -d -p 80:80 --name jp jpgouigoux/middleoffice
 docker rm -fv jp
+
+# Comment réaliser les tests unitaires
+    - Test ajout d'une demande de vote :
+    Dans POSTMAN, envoyer "demande.json" (sans l'objet Vote) à l'adresse localhost:5000/. Cela retournera le code 201 et un id de type localhost:5000/api/Requests/<id>
+    

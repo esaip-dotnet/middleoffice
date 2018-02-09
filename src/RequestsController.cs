@@ -10,16 +10,42 @@ namespace MiddleOffice
     [Route("api/[controller]")]
     public class RequestsController : Controller
     {
-        [HttpGet("/")]
-        public IActionResult Racine()
-        {
-            return new ObjectResult("OK, ça marche !");
-        }
+        private static List<Request> db = new List<Request>();
+
+        private string urlService = "http://esaip.westeurope.cloudapp.azure.com/";
 
         [HttpPost]
-        public void CreateRequest([FromBody] Request r)
+        public IActionResult CreateRequest([FromBody] Request r)
         {
             Console.WriteLine("Création d'une demande");
+            if (r == null) return new BadRequestResult();
+            r.id = Guid.NewGuid().ToString();
+            db.Add(r);
+            return Created(urlService + "api/Requests/" + r.id, r);
         }
+
+        [HttpGet("/api/Requests")]
+        public IActionResult GetRequests()
+        {
+            return new JsonResult(db.FindAll(r => r.vote == null));
+        }
+
+        [HttpGet("/api/Requests/{id}")]
+        public IActionResult GetRequest(string id)
+        {
+            Request result = db.Find(r => r.id == id);
+            if (result == null) return NotFound();
+            return new JsonResult(result);
+        }
+
+        [HttpPost("/api/Requests/{id}/Vote")]
+        public IActionResult Vote(string id, [FromBody] Vote v)
+        {
+            Request result = db.Find(r => r.id == id);
+            if (result == null) return NotFound();
+            if (result.vote != null) return new BadRequestResult();
+            result.vote = v;
+            return new NoContentResult();
+        }        
     }
 }
