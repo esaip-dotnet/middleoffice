@@ -25,16 +25,15 @@
                 "lang" : "fr-FR",
                 "value" : "Oui, envoyez-le"
             },
-            "headers" : [
-                {
-                    "name" : "Authorization",
-                    "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
-                }
-            ],
             "action" : {
                 "url" : "http://erasmus/dossiers",
                 "verb" : "POST",
-                "headers" : [],
+                "headers" : [
+                    {
+                        "name" : "Authorization",
+                        "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
+                    }
+                ],
                 "payload" : "${payload}"
             }
         },
@@ -43,18 +42,7 @@
             "label" : {
                 "lang" : "fr-FR",
                 "value" : "Non, il ne mérite pas de partir en Erasmus"
-            },
-            "datacollect" : [
-                {
-                    "code" : "raison",
-                    "label" : { 
-                        "lang" : "fr-FR",
-                        "value" : "Merci d'expliciter ce choix"
-                    },
-                    "type" : "string",
-                    "optional" : true
-                }
-            ]
+            }
         }
     ]
 }
