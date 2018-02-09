@@ -7,3 +7,4 @@ RUN dotnet publish -o output
 FROM microsoft/aspnetcore:2.0
 COPY --from=builder /app/output /app
 WORKDIR /app
+ENTRYPOINT ["dotnet", "middleoffice.dll"]
