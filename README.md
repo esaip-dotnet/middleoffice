@@ -22,6 +22,26 @@ La cible de déploiement est un CoreOS sur Azure, accessible sur `esaip.westeuro
 - 88 : Clément
 
 # commandes Docker
+Pour compiler, c'est-à-dire créer une image à partir du Dockerfile dans le répertoire courant :
+
     docker build -t jpgouigoux/middleoffice .
+
+Pour démarrer un conteneur à partir de l'image sur un port donné, avec un nom :
+
     docker run -d -p 80:80 --name jp jpgouigoux/middleoffice
+
+Pour lister tous les conteneurs lancés (y compris ceux arrêtés) :
+
+    docker ps -a
+
+Pour afficher toutes les images disponibles dans le cache local :
+
+	docker images
+
+Pour afficher les logs d'un conteneur :
+
+	docker logs jp
+
+Pour supprimer complètement un conteneur, en forçant son arrêt et en supprimant ses données :
+
     docker rm -fv jp
