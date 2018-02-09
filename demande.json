@@ -1,6 +1,9 @@
 {
     "id" : "0001",
-    "summary" : "OK pour envoyer JPG en Erasmus l'an prochain",
+    "summary" : [{
+        "lang" : "fr-FR",
+        "value" : "OK pour envoyer JPG en Erasmus l'an prochain"
+    }],
     "payload" : {
         "etudiant" : "gouigoux-jp",
         "destination" : "Göteborg",
@@ -10,8 +13,11 @@
     "vote" : {
         "author" : {
             "login" : "kermorvant-a",
-            "label" : "Armel Kermorvant",
-            "function" : "Directeur de formation"
+            "displayName" : "Armel Kermorvant",
+            "fonction" : [{
+                "lang" : "fr-FR",
+                "value" : "Directeur de formation"
+            }]
         },
         "timestamp" : "2018-01-01:09:00:00Z+1",
         "answer" : {
@@ -21,16 +27,16 @@
     "answers" : [
         {
             "code" : 0,
-            "label" : {
+            "summury" : [{
                 "lang" : "fr-FR",
                 "value" : "Oui, envoyez-le"
-            },
-            "headers" : [
-                {
-                    "name" : "Authorization",
-                    "value" : "Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy"
-                }
-            ],
+            },{
+                "lang" : "en-EN",
+                "value" : "Yes, send him"
+            },{
+                "lang" : "de-DE",
+                "value" : "Oui, envoyez-le (en allemand)"
+            }],
             "action" : {
                 "url" : "http://erasmus/dossiers",
                 "verb" : "POST",
@@ -40,21 +46,11 @@
         },
         {
             "code" : 1,
-            "label" : {
+            "summury" : [{
                 "lang" : "fr-FR",
                 "value" : "Non, il ne mérite pas de partir en Erasmus"
-            },
-            "datacollect" : [
-                {
-                    "code" : "raison",
-                    "label" : { 
-                        "lang" : "fr-FR",
-                        "value" : "Merci d'expliciter ce choix"
-                    },
-                    "type" : "string",
-                    "optional" : true
-                }
-            ]
+            }]
+            
         }
     ]
 }
