@@ -8,7 +8,7 @@ Middle Office avec les étudiants ESAIP IR 2018
 - POST /requests/{id}/vote : donne un choix de vote pour une demande
 
 # deploiement
-La cible de déploiement est un CoreOS sur Azure, accessible sur esaip.westeurope.cloudapp.azure.com. La connexion au SSH 22 se fait avec le user esaip et le mot de passe donné en cours.
+La cible de déploiement est un CoreOS sur Azure, accessible sur `esaip.westeurope.cloudapp.azure.com`. La connexion au SSH 22 se fait avec le user `esaip` et le mot de passe donné en cours.
 
 # affectation des ports
 - 80 : JP (Prof)
