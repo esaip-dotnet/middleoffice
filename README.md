@@ -12,14 +12,14 @@ La cible de déploiement est un CoreOS sur Azure, accessible sur `esaip.westeuro
 
 # affectation des ports
 - 80 : JP (Prof)
-- 81 : Charles
-- 82 : Dorian
-- 83 : Alexandre
-- 84 : Emilien
-- 85 : Quentin
-- 86 : Antoine
-- 87 : Benjamin
-- 88 : Clément
+- 81 : Charles (ctrouplin / ctrouplin)
+- 82 : Dorian (nairod95 / nairod)
+- 83 : Alexandre (Lextoplasme / lextoplasme)
+- 84 : Emilien (neilimebenaiteau / neilime1995)
+- 85 : Quentin (qdenis / ?)
+- 86 : Antoine (arichard44 / arichard)
+- 87 : Benjamin (bsabaron / bsabaron)
+- 88 : Clément (clembobo / clemboisse)
 
 # commandes Docker
 Pour compiler, c'est-à-dire créer une image à partir du Dockerfile dans le répertoire courant :
