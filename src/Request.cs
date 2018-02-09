@@ -8,9 +8,10 @@ namespace MiddleOffice
     public class Request
     {
         public string id { get; set; }
-        public string summary { get; set; }
-        public string payload { get; set; }
+        public List<Label> summary { get; set; }
+        public object payload { get; set; }
         public string category { get; set; }
         public List<Answer> answers { get; set; }
+        public Vote vote { get; set; }
     }
 }
