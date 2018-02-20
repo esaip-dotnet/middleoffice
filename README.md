@@ -28,15 +28,15 @@ docker rm -fv jp
 
 # Comment réaliser les tests unitaires
 Tester ajout d'une demande de vote :
-Dans le logiciel POSTMAN, envoyer le contenu du fichier "demande.json" (sans l'objet Vote) à l'adresse localhost:5000/api/Requests en POST. Doit retourner un status 201 Created et un (localhost:5000/api/Requests/<id>)
+Dans le logiciel POSTMAN, envoyer le contenu du fichier "demande.json" (sans l'objet Vote) à l'adresse URL :localhost:5000/api/Requests en POST. Doit retourner un status 201 Created et un (localhost:5000/api/Requests/<id>)
 
-Tester l'affichage d'une demande pour lecture / vote éventuel
-Dans le logiciel POSTMAN, saisir la requête suivante : localhost:5000/api/Requests/<id> en GET. Cela va renvoyer un JSON avec ' "vote": null ' à la fin. Doit retourner un status 200 OK.
+Tester l'affichage d'une demande pour lecture / vote éventuel :
+Dans le logiciel POSTMAN, saisir la requête suivante URL : localhost:5000/api/Requests/<id> en GET. Cela va renvoyer un JSON avec ' "vote": null ' à la fin. Doit retourner un status 200 OK.
 
-Tester le choix de vote pour une demande
-Dans le logiciel POSTMAN, saisir la requête suivante : localhost:5000/api/Requests/<id> en POST avec l'objet json author, le timestamp et le code 0. Doit retourner un status 204 noContent
+Tester le choix de vote pour une demande :
+Dans le logiciel POSTMAN, saisir la requête suivante URL : localhost:5000/api/Requests/<id> en POST avec l'objet json author, le timestamp et le code 0. Doit retourner un status 204 noContent
 
-Tester la visualisation de la liste de toutes les demandes en attente
-ans le logiciel POSTMAN, saisir la requête suivante : localhost:5000/api/Requests en GET. Celà doit retourner un status 200. 
+Tester la visualisation de la liste de toutes les demandes en attente :
+ans le logiciel POSTMAN, saisir la requête suivante URL : localhost:5000/api/Requests en GET. Celà doit retourner un status 200. 
 
     
