@@ -51,3 +51,6 @@ URL : http://localhost:5000/api/Requests/{{idrequest}}/Vote
 Method : POST
 Body : raw -> JSON (joindre objet vote)
 Résultat : 204 No Content
+
+# configuration
+Modifier la variable urlService dans la classe RequestsController
