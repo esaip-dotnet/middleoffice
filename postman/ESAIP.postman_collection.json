@@ -1,0 +1,200 @@
+{
+	"info": {
+		"name": "ESAIP",
+		"_postman_id": "c4976bc8-d387-bb56-4428-3edd77472d72",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "623c804f-6aaa-4c27-a331-3b5336b1ebf6",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.globals.set(\"idrequest\", jsonData.id);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"summary\" : [{\r\n        \"lang\" : \"fr-FR\",\r\n        \"value\" : \"OK pour envoyer JPG en Erasmus l'an prochain\"\r\n    }],\r\n    \"payload\" : {\r\n        \"etudiant\" : \"gouigoux-jp\",\r\n        \"destination\" : \"Göteborg\",\r\n        \"annee\" : \"2019\"\r\n    },\r\n    \"category\" : \"DEMANDE_ERASMUS\",\r\n    \"answers\" : [\r\n        {\r\n            \"code\" : 0,\r\n            \"summary\" : [{\r\n                \"lang\" : \"fr-FR\",\r\n                \"value\" : \"Oui, envoyez-le\"\r\n            },{\r\n                \"lang\" : \"en\",\r\n                \"value\" : \"Yes, send him\"\r\n            },{\r\n                \"lang\" : \"de\",\r\n                \"value\" : \"Ja, schicken Sie darin\"\r\n            }],\r\n            \"content\" : [{\r\n                \"lang\" : \"fr-FR\",\r\n                \"value\" : \"Si vous choisissez cette réponse, alors la personne désignée dans le message sera envoyée pour l'année scolaire suivante en Erasmus à la destination demandée. En cas de doute, contacter machin@bidule.fr.\"\r\n            }],\r\n            \"action\" : {\r\n                \"url\" : \"http://erasmus/dossiers\",\r\n                \"verb\" : \"POST\",\r\n                \"headers\" : [\r\n                    {\r\n                        \"name\" : \"Authorization\",\r\n                        \"value\" : \"Basic Z291aWdvdXgtanAgWm9yZ2x1YjIy\"\r\n                    }\r\n                ],\r\n                \"payload\" : \"${payload}\"\r\n            }\r\n        },\r\n        {\r\n            \"code\" : 1,\r\n            \"label\" : {\r\n                \"lang\" : \"fr-FR\",\r\n                \"value\" : \"Non, il ne mérite pas de partir en Erasmus\"\r\n            }\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/Requests",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Requests"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/Requests/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Requests",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get previously created request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/Requests/{{idrequest}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Requests",
+						"{{idrequest}}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Display vote form for request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/Requests/{{idrequest}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Requests",
+						"{{idrequest}}"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Vote for request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"answer\" : {\r\n        \"code\" : 0\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/Requests/{{idrequest}}/Vote",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"Requests",
+						"{{idrequest}}",
+						"Vote"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "salvia",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			},
+			{
+				"key": "saveHelperData",
+				"type": "any"
+			},
+			{
+				"key": "showPassword",
+				"value": false,
+				"type": "boolean"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e0186f47-1a06-45e9-830d-2e03543e2d7f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "74cd7c81-3d1d-43e9-a037-41be1ff41f7a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
