@@ -11,6 +11,10 @@ namespace MiddleOffice
     {
         [BsonId]
         public string id { get; set; }
+
+        public List<Label> summary { get; set; }
+        public object payload { get; set; }
+
         
         public List<Label> summary { get; set; }
 
@@ -18,10 +22,11 @@ namespace MiddleOffice
         [BsonSerializer(typeof(PayloadSerializer))]
         public object payload { get; set; }
         
+
         public string category { get; set; }
         
         public List<Answer> answers { get; set; }
-        
+
         public Vote vote { get; set; }
     }
 }
