@@ -4,8 +4,7 @@ using System.Threading.Tasks;
 
 namespace MiddleOffice
 {
-    //Classe constructeur Action
-    public class Action 
+    public class Action
     {
         public string url { get; set; }
         public string verb { get; set; }

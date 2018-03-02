@@ -1,0 +1,41 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is the swagger of the ApiVote\n[http://swagger.io](http://swagger.io) or on \n[irc.freenode.net, #swagger](http://swagger.io/irc/).\n",
+    "version" : "1.0.0",
+    "title" : "Swagger ApiVote"
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/azerty/ApiVote/1.0.0",
+  "tags" : [ {
+    "name" : "request",
+    "description" : "Everything about your request"
+  }, {
+    "name" : "vote",
+    "description" : "Access to Petstore orders"
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/api/Requests" : {
+      "get" : {
+        "tags" : [ "request" ],
+        "summary" : "liste toutes les demandes en attente",
+        "operationId" : "add",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "null",
+          "required" : false
+        } ],
+        "responses" : {
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

@@ -2,67 +2,46 @@
 Middle Office avec les étudiants ESAIP IR 2018
 
 # api signature
-POST /requests : ajoute une demande de vote
-GET /requests : liste toutes les demandes en attente
-GET /requests/{id} : affiche une demande pour lecture et vote éventuel
-POST /requests/{id}/vote : donne un choix de vote pour une demande
+- POST /requests : ajoute une demande de vote
+- GET /requests : liste toutes les demandes en attente
+- GET /requests/{id} : affiche une demande pour lecture et vote éventuel
+- POST /requests/{id}/vote : donne un choix de vote pour une demande
 
-# deploiement sur esaip.westeurope.cloudapp.azure.com
-Connexion au SSH 22 avec user esaip / mot de passe donné en cours
+# deploiement
+La cible de déploiement est un CoreOS sur Azure, accessible sur `esaip.westeurope.cloudapp.azure.com`. La connexion au SSH 22 se fait avec le user `esaip` et le mot de passe donné en cours.
 
 # affectation des ports
-80 : JP (Prof)
-81 : Charles
-82 : Dorian
-83 : Alexandre
-84 : Emilien
-85 : Quentin
-86 : Antoine
-87 : Benjamin
-88 : Clément
+- 80 : JP (Prof)
+- 81 : Charles (ctrouplin / ctrouplin)
+- 82 : Dorian (nairod95 / nairod)
+- 83 : Alexandre (Lextoplasme / lextoplasme)
+- 84 : Emilien (neilimebenaiteau / neilime1995)
+- 85 : Quentin (qdenis / ?)
+- 86 : Antoine (arichard44 / arichard)
+- 87 : Benjamin (bsabaron / bsabaron)
+- 88 : Clément (clembobo / clemboisse)
 
 # commandes Docker
-docker build -t jpgouigoux/middleoffice .
-docker run -d -p 80:80 --name jp jpgouigoux/middleoffice
-docker rm -fv jp
+Pour compiler, c'est-à-dire créer une image à partir du Dockerfile dans le répertoire courant :
 
+    docker build -t jpgouigoux/middleoffice .
 
+Pour démarrer un conteneur à partir de l'image sur un port donné, avec un nom :
 
-#Explication du projet
+    docker run -d -p 80:80 --name jp jpgouigoux/middleoffice
 
-La découverte du développement .Net se fait à travers ce projet.
+Pour lister tous les conteneurs lancés (y compris ceux arrêtés) :
 
-Le but est de réalisé une serie de votes par une personne (ou plusieurs personnes) pouvant utiliser une leap motion, une kinect, un windows phone ou une page web.
-On voit également les différentes législations et règles pour remplir les bbd avec les différents champs qui doivent être disponible pour une éventuelle mise à jour de la base de données (exemple : il faut pouvoir associer plusieurs addresses à une perosnne et non pas une seule).
+    docker ps -a
 
-Nous utilisons principalement le c# et le json.
+Pour afficher toutes les images disponibles dans le cache local :
 
-A cela nous avons optenu le login du votant à partir du header.
+	docker images
 
-# Test unitaire
+Pour afficher les logs d'un conteneur :
 
-POST /requests : ajoute une demande de vote
-Url http://esaip.westeurope.cloudapp.azure.com/api/Requests
-Method : Post
-(mettre tout le json mais retirer la partie "vote")
+	docker logs jp
 
+Pour supprimer complètement un conteneur, en forçant son arrêt et en supprimant ses données :
 
-liste toutes les demandes en attente
-Url http://esaip.westeurope.cloudapp.azure.com/api/Requests
-Method : Get
-
-Obtenir tous les votes :
-Url http://esaip.westeurope.cloudapp.azure.com/api/Requests
-Method : Get
-
-affiche une demande pour lecture et vote éventuel
-Url http://esaip.westeurope.cloudapp.azure.com/api/Requests/{id}
-Method : Get
-Test : var jsonData = JSON.parse(responseBody);
-    pm.globals.set("idrequest",jsonData.id);
-
-donne un choix de vote pour une demande
-Url http://esaip.westeurope.cloudapp.azure.com/api/Requests/{id}/Vote
-Method : Post
-Mettre la partie "vote" du json
-        
+    docker rm -fv jp
