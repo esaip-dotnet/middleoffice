@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MiddleOffice
 {
+
     //Classe permettant de s'identifier
     //On récupere à partir du JSON la partie authentification
     //On a une chaine de type Basic bG9naW46cGFzc3dvcmQ=
@@ -19,6 +20,7 @@ namespace MiddleOffice
     //on décode cette partie avec la base 64
     //on optient login:password
     //on peut alors parser pour avoir le login et le mot de passe séparé.
+
     public class HeaderAuthorization
     {
         public static Tuple<bool, string> FailFastCheckAuthorization(HttpContext context)

@@ -2,7 +2,7 @@
     "id" : "0001",
     "summary" : [{
         "lang" : "fr-FR",
-        "value" : "OK pour envoyer JPG en Erasmus l'an prochain"
+        "value" : "OK pour envoyer JPG en Erasmus l'an prochain ?"
     }],
     "payload" : {
         "etudiant" : "gouigoux-jp",
