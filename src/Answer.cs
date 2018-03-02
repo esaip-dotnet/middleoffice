@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 namespace MiddleOffice
 {
+    // Classe constructeur Answer
     public class Answer
     {
         public string code { get; set; }

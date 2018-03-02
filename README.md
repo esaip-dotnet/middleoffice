@@ -33,9 +33,11 @@ docker rm -fv jp
 La découverte du développement .Net se fait à travers ce projet.
 
 Le but est de réalisé une serie de votes par une personne (ou plusieurs personnes) pouvant utiliser une leap motion, une kinect, un windows phone ou une page web.
-On voit également les différentes législations et règles pour remplir les bbd avec les différents champs qui doivent être disponible pour une éventuelle mise à jour de la base de données (exemple : il faut pouvoir associer plusieur addresses à une perosnne et non pas une seule).
+On voit également les différentes législations et règles pour remplir les bbd avec les différents champs qui doivent être disponible pour une éventuelle mise à jour de la base de données (exemple : il faut pouvoir associer plusieurs addresses à une perosnne et non pas une seule).
 
 Nous utilisons principalement le c# et le json.
+
+A cela nous avons optenu le login du votant à partir du header.
 
 # Test unitaire
 
