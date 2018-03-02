@@ -27,17 +27,17 @@ docker rm -fv jp
 # Comment réaliser les tests unitaires
 Utilisez POSTMAN pour effectcuer les test d'envoie de requête POST, GET, etc.
 
-Tester ajout d'une demande de vote :
-Dans POSTMAN, envoyer le contenu du fichier "demande.json" (sans l'objet Vote) à l'adresse *localhost:5000/api/Requests* en POST. Doit retourner un status 201 Created et un (*localhost:5000/api/Requests/<id>*)
+Ajout d'une demande de vote :
+Dans POSTMAN, envoyer le contenu du fichier "demande.json" (sans l'objet Vote) à l'adresse http://localhost:5000/api/Requests en POST. Doit retourner un status 201 Created.
 
-Tester l'affichage d'une demande pour lecture / vote éventuel :
-Dans POSTMAN, saisir la requête suivante *localhost:5000/api/Requests/<id>* en GET. Cela va renvoyer un JSON avec ' "vote": null ' à la fin. Doit retourner un status 200 OK.
+Affichage d'une demande pour lecture / vote éventuel :
+Dans POSTMAN, saisir la requête suivante  http://localhost:5000/api/Requests/{{idrequest}} en GET. Cela va renvoyer un JSON avec ' "vote": null ' à la fin. Doit retourner un status 200 OK.
 
-Tester le choix de vote pour une demande :
-Dans POSTMAN, saisir la requête suivante *localhost:5000/api/Requests/<id>* en POST avec l'objet json author, le timestamp et le code 0. Doit retourner un status 204 noContent
+Vote pour une demande :
+Dans POSTMAN, saisir la requête suivante  http://localhost:5000/api/Requests/{{idrequest}}/Vote en POST avec l'objet json author, le timestamp et le code 0. Doit retourner un status 204 noContent
 
-Tester la visualisation de la liste de toutes les demandes en attente :
-Dans POSTMAN, saisir la requête suivante *localhost:5000/api/Requests* en GET. Celà doit retourner un status 200. 
+Visualiser la liste de toutes les demandes en attente :
+Dans POSTMAN, saisir la requête suivante http://localhost:5000/api/Requests en GET. Celà doit retourner un status 200. 
 
 # comment raporter un bug ou contribuer au projet
 Si vous trouvez un ou plusieurs bug ou si vous souhaitez contribuer au projet, contactez  ebenaiteau.ir2018 at esaip.org

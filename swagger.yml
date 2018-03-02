@@ -1,0 +1,108 @@
+swagger: "2.0"
+info:
+  description: "This is a swagger for use the esaip-dotnet REST API. "
+  version: "1.0.0"
+  title: "Swagger API Vote"
+  contact:
+    email: "blabla.ir2018@esaip.org"
+  license:
+    name: "Licence MIT"
+    url: "https://en.wikipedia.org/wiki/MIT_License"
+host: "esaip.westeurope.cloudapp.azure.com"
+basePath: "/api"
+tags:
+- name: "vote"
+  description: "Vote for an ERASMUS scolarship"
+  externalDocs:
+    description: "Find out more"
+    url: "github.com/NeilimeBenaiteau/middleoffice/"
+- name: "vote"
+  description: "Operations about user"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /api/Requests :
+    post:
+      tags:
+      - "api/Resquests"
+      summary: "Create a vote request"
+      description: "This can only be done by the logged in user with basic auth."
+      operationId: "createRequest"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "json_vote_request"
+        in: "header"
+        required: true
+        type: "string"
+        description: "A json with the vote request"
+      responses:
+        201:
+          description: "created"
+        403:
+          description: "Forbidden"
+          
+  /api/Requests/{idrequest}:
+    get:
+      tags:
+      - "api/Resquests"
+      summary: "Get a request by id"
+      description: "This can only be done by the logged in user with basic auth."
+      operationId: "getRequestById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "idrequest"
+        in: "path"
+        description: "Id needs to be fetched. Use 01 for testing. "
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: "OK"
+        403:
+          description: "Forbidden"
+          
+  /api/Requests/:
+    get:
+      tags:
+      - "api/Resquests"
+      summary: "Get all requests"
+      description: "This can only be done by the logged in user with basic auth."
+      operationId: "getAllRequest"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "OK"
+        403:
+          description: "Forbidden"
+
+  /api/Requests/{idrequest}/Vote:
+    post:
+      tags:
+      - "api/Resquests"
+      summary: "Vote by id for a request"
+      description: "This can only be done by the logged in user with basic auth."
+      operationId: "VoteForARequest"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "idrequest"
+        in: "path"
+        description: "Id needs to be fetched. Use 01 for testing. "
+        required: true
+        type: "number"
+      - name: "json_vote"
+        in: "header"
+        required: true
+        type: "string"
+        description: "A json with the vote, login, displayname"
+      responses:
+        204:
+          description: "no content"
+        403:
+          description: "Forbidden"
