@@ -1,0 +1,415 @@
+swagger: '2.0'
+info:
+  title: API Middleoffice
+  description: Middleoffice application allows to create requests and vote it. Requests are saved into a MongoDB database.
+  version: "1.0.0"
+
+host: esaip.westeurope.cloudapp.azure.com
+schemes:
+  - http
+produces:
+  - application/json
+consumes:
+  - application/json
+
+paths:
+  /api/Requests:
+    post:
+      summary: Create a new request
+      description: Allow to create a new request and save it into database
+      parameters:
+        - name: Request
+          in: body
+          required: true
+          description: Request json format
+          schema:
+            type: object
+            required: 
+              - "summary"
+              - "payload"
+              - "category"
+              - "answers"
+            properties: 
+              summary: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    lang: 
+                      type: "string"
+                    value: 
+                      type: "string"
+              payload: 
+                required: 
+                  - "etudiant"
+                  - "destination"
+                  - "annee"
+                properties: 
+                  etudiant: 
+                    type: "string"
+                  destination: 
+                    type: "string"
+                  annee: 
+                    type: "string"
+                type: "object"
+              category: 
+                type: "string"
+              answers: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    code: 
+                      type: "number"
+                    summary: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    content: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    action: 
+                      required: 
+                        - "url"
+                        - "verb"
+                        - "headers"
+                        - "payload"
+                      properties: 
+                        url: 
+                          type: "string"
+                        verb: 
+                          type: "string"
+                        headers: 
+                          type: "array"
+                          items: 
+                            type: "object"
+                            properties: 
+                              name: 
+                                type: "string"
+                              value: 
+                                type: "string"
+                        payload: 
+                          type: "string"
+                      type: "object"
+            
+      responses:
+        201:
+          description: Request created
+          schema:
+            type: object
+            required: 
+              - "summary"
+              - "payload"
+              - "category"
+              - "answers"
+            properties: 
+              summary: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    lang: 
+                      type: "string"
+                    value: 
+                      type: "string"
+              payload: 
+                required: 
+                  - "etudiant"
+                  - "destination"
+                  - "annee"
+                properties: 
+                  etudiant: 
+                    type: "string"
+                  destination: 
+                    type: "string"
+                  annee: 
+                    type: "string"
+                type: "object"
+              category: 
+                type: "string"
+              answers: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    code: 
+                      type: "number"
+                    summary: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    content: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    action: 
+                      required: 
+                        - "url"
+                        - "verb"
+                        - "headers"
+                        - "payload"
+                      properties: 
+                        url: 
+                          type: "string"
+                        verb: 
+                          type: "string"
+                        headers: 
+                          type: "array"
+                          items: 
+                            type: "object"
+                            properties: 
+                              name: 
+                                type: "string"
+                              value: 
+                                type: "string"
+                        payload: 
+                          type: "string"
+                      type: "object"
+        400:
+          description: Empty request
+        403:
+          description: Authorization denied
+  
+    get:
+      summary: Get all requests
+      description: Allow to get all requests
+      responses:
+        200:
+          description: Return a list of all requests in json format
+          schema:
+            type: object
+            required: 
+              - "summary"
+              - "payload"
+              - "category"
+              - "answers"
+            properties: 
+              summary: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    lang: 
+                      type: "string"
+                    value: 
+                      type: "string"
+              payload: 
+                required: 
+                  - "etudiant"
+                  - "destination"
+                  - "annee"
+                properties: 
+                  etudiant: 
+                    type: "string"
+                  destination: 
+                    type: "string"
+                  annee: 
+                    type: "string"
+                type: "object"
+              category: 
+                type: "string"
+              answers: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    code: 
+                      type: "number"
+                    summary: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    content: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    action: 
+                      required: 
+                        - "url"
+                        - "verb"
+                        - "headers"
+                        - "payload"
+                      properties: 
+                        url: 
+                          type: "string"
+                        verb: 
+                          type: "string"
+                        headers: 
+                          type: "array"
+                          items: 
+                            type: "object"
+                            properties: 
+                              name: 
+                                type: "string"
+                              value: 
+                                type: "string"
+                        payload: 
+                          type: "string"
+                      type: "object"
+        403:
+          description: Authorization denied
+            
+  /api/Requests/{id}:
+    get:
+      summary: Get a request
+      description: Allow to get a request by its id
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id of the request"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: Return the request
+          schema:
+            type: object
+            required: 
+              - "summary"
+              - "payload"
+              - "category"
+              - "answers"
+            properties: 
+              summary: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    lang: 
+                      type: "string"
+                    value: 
+                      type: "string"
+              payload: 
+                required: 
+                  - "etudiant"
+                  - "destination"
+                  - "annee"
+                properties: 
+                  etudiant: 
+                    type: "string"
+                  destination: 
+                    type: "string"
+                  annee: 
+                    type: "string"
+                type: "object"
+              category: 
+                type: "string"
+              answers: 
+                type: "array"
+                items: 
+                  type: "object"
+                  properties: 
+                    code: 
+                      type: "number"
+                    summary: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    content: 
+                      type: "array"
+                      items: 
+                        type: "object"
+                        properties: 
+                          lang: 
+                            type: "string"
+                          value: 
+                            type: "string"
+                    action: 
+                      required: 
+                        - "url"
+                        - "verb"
+                        - "headers"
+                        - "payload"
+                      properties: 
+                        url: 
+                          type: "string"
+                        verb: 
+                          type: "string"
+                        headers: 
+                          type: "array"
+                          items: 
+                            type: "object"
+                            properties: 
+                              name: 
+                                type: "string"
+                              value: 
+                                type: "string"
+                        payload: 
+                          type: "string"
+                      type: "object"
+        404:
+          description: Request not found
+        403:
+          description: Authorization denied
+
+  /api/Requests/{id}/Vote:
+    post:
+      summary: Vote for a request
+      description: Allows to vote for a request by its id
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Id of the request"
+        required: true
+        type: "number"
+      - name: Request
+        in: body
+        required: true
+        description: Request json format
+        schema:
+          type: object
+          required:
+            - "answer"
+          properties: 
+            answer: 
+              required: 
+                - "code"
+              properties: 
+                code: 
+                  type: "number"
+              type: "object"
+      responses:
+        204:
+          description: Vote created for the request
+        404:
+          description: Request not found
+        400:
+          description: Bad request
+        403:
+          description: Authorization denied
